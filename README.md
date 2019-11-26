@@ -1,2 +1,2 @@
-# ReactJS, MySQL, Express, NodeJS Todo List
-A todo list sample application with ReactJS, MySQL, Express, NodeJS 
+# nodejs-mysql-authentication
+A simple login and register using nodejs, mysql, and jwt token

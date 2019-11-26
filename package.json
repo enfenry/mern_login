@@ -1,20 +1,35 @@
 {
-  "name": "mytasklist",
+  "name": "nodejs-mysql-authentication",
   "version": "1.0.0",
-  "description": "Simple task manager",
+  "description": "nodejs login with jwt token",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node server.js",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "author": "",
+  "keywords": [
+    "nodejs",
+    "jwt",
+    "passport",
+    "express"
+  ],
+  "author": "Arjun Araneta",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.15.2",
+    "bcrypt": "^3.0.0",
+    "body-parser": "^1.17.2",
     "cors": "^2.8.4",
-    "express": "^4.14.0",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^7.4.2",
+    "mysql": "^2.14.1",
     "mysql2": "^1.6.1",
-    "nodemon": "^1.18.4",
     "sequelize": "^4.38.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
   }
 }

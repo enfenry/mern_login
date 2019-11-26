@@ -1,26 +1,26 @@
 import React, { Component } from 'react'
-import './App.css'
-import List from './List'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+
+import Navbar from './components/Navbar'
+import Landing from './components/Landing'
+import Login from './components/Login'
+import Register from './components/Register'
+import Profile from './components/Profile'
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      term: '',
-      items: []
-    }
-  }
-
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-6 mx-auto">
-            <h1 className="text-center">TODO </h1>
-            <List />
+      <Router>
+        <div className="App">
+          <Navbar />
+          <Route exact path="/" component={Landing} />
+          <div className="container">
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/profile" component={Profile} />
           </div>
         </div>
-      </div>
+      </Router>
     )
   }
 }

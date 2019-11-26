@@ -16,6 +16,32 @@ var Users = require('./routes/Users')
 
 app.use('/users', Users)
 
-app.listen(port, function() {
-  console.log('Server is running on port: ' + port)
-})
+
+
+// ---------------------------------------------------------------
+
+const db = require("./models");
+
+// // React Front-End 
+// if(process.env.NODE_ENV === 'production') {
+//   app.use(express.static('client/build'));
+//   const path = require('path');
+//   app.get('*', (req, res) => {
+//       res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+//   });
+// };
+
+var syncOptions = { force: true };
+
+// if (process.env.NODE_ENV === "test") {
+//   syncOptions.force = true;
+// }
+
+const PORT = process.env.PORT || 4000;
+db.sequelize.sync(syncOptions).then(function() {
+  app.listen(port, function() {
+    console.log('Server is running on port: ' + PORT)
+  })
+});
+
+module.exports = app;

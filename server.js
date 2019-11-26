@@ -16,8 +16,6 @@ var Users = require('./routes/Users')
 
 app.use('/users', Users)
 
-
-
 // ---------------------------------------------------------------
 
 const db = require("./models");

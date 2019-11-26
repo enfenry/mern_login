@@ -34,3 +34,17 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
+
+// MAYBE MODIFY CONFIG.JSON BASED ON THESE OPTIONS IF NOT WORKING
+// const sequelize = new Sequelize('nodejs_login1', 'root', 'password', {
+//   host: 'localhost',
+//   dialect: 'mysql',
+//   operatorsAliases: false,
+
+//   pool: {
+//     max: 5,
+//     min: 0,
+//     acquire: 30000,
+//     idle: 10000
+//   }
+// })
